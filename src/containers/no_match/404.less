@@ -1,0 +1,72 @@
+html,body{
+    // min-height: auto;
+}
+.error_404 {
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    width: 478px;
+    text-align: center;
+    padding-top: 300px;
+    margin-top: 226px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    font-size: 16px;
+    line-height: 30px;
+    color: #666666;
+    h1 {
+        margin-top: 50px;
+        font-size: 30px;
+        font-weight: normal;
+        line-height: 30px;
+        color: #2e2d2d;
+    }
+    p {
+        margin-top: 9px;
+    }
+    a+a {
+        margin-left: 16px;
+    }
+    .btn_prev,
+    .btn_home {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        zoom: 1;
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding;
+        background-clip: padding-box;
+        border: none;
+        -webkit-transition: 0.15s;
+        -moz-transition: 0.15s;
+        transition: 0.15s;
+        padding: 0 14px;
+        margin-top: 20px;
+        height: 35px;
+        line-height: 33px;
+    }
+    .btn_prev {
+        color: #5eb0ea;
+        border: 1px solid #5eb0ea;
+        &:hover {
+            border-color: #2c91dc;
+        }
+    }
+    .btn_home {
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #5eb0ea;
+        &:hover {
+            background-color: #2c91dc;
+        }
+    }
+}
+.error_404{
+    background-image: url('../../static/error-404.png');
+}
+

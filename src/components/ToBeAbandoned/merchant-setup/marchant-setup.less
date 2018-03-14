@@ -1,0 +1,32 @@
+//使用less工具方法
+@import (reference) "~utils/mixin.less";
+@import  "~utils/common.less";
+
+.wrap{
+    font-size: 14px;
+    :global(.ant-modal-body){
+        //padding:30px;
+        padding-top: 22px;
+        font-size: 14px;
+    }
+    :global(.ant-checkbox-wrapper){
+        font-size: 14px;
+    }
+    :global(.ant-checkbox){
+        vertical-align: -2px;
+    }
+    :global(.ant-modal-footer){
+        padding-top: 10px;
+        padding-bottom: 22px;
+        border-top: none;
+    }
+    .mtXs{
+        margin-top: 12px;
+        :first-child{
+            margin-top: 0;
+        }
+    }
+    .mtLg{
+        margin-top: 30px;
+    }
+}

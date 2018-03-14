@@ -1,0 +1,134 @@
+/*
+* 模块描述：文字超出一行截断，带省略号
+* 模块兼容：
+* 模块作者：@luolijuan
+* 更新时间：2017-03-16
+*/
+
+@charset "UTF-8";
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsisLn(@line) { //line行超出省略号
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line; //@line可配置截断行数
+}
+
+//使用注意：
+//此 mixin 用来以省略号代替被截断的文本。元素必须是 block 或 inline-block 级。
+//
+//    // 方法
+//.text-overflow() {
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//    white-space: nowrap;
+//}
+//
+//// 使用示例：
+//.branch-name {
+//    display: inline-block;
+//    max-width: 200px;
+//    .text-overflow();
+//}\
+
+
+/*
+* 模块描述：背景渐变
+* 模块兼容：
+* 模块作者：@luolijuan
+* 更新时间：2017-03-16
+*/
+
+@charset "UTF-8";
+
+//#gradient {
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+.horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Opera 12
+    background-image: linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+.vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Opera 12
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+}
+
+.directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(@deg, @start-color, @end-color); // Opera 12
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+}
+.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -o-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -o-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+.radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+}
+.striped(@color: rgba(255,255,255,.15); @angle: 45deg) {//条纹渐变
+    background-image: -webkit-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+}
+//}
+
+// ==============================
+// 使用示例
+// ==============================
+//便于把任何两种颜色变成背景渐变色。想要使他更高级些，可以设置一个direction（方向），使用三种颜色，也可以使用径向（radial）渐变。使用一个mixin（混入），你就可以得到所有需要的前缀语法。
+
+//.example{ .vertical(#333; #000); }
+//.example{ .horizontal(#333; #000); }
+//.example{ .radial(#333; #000); }
+//你也可以为标准的里两颜色线性渐变指定角度：
+
+//.example{ .directional(#333; #000; 45deg); }
+//如果你需要一个条纹风格的渐变，这也很容易。只要指定一个颜色，我们将该颜色半透明的条纹覆盖其上。
+
+//.example{ .striped(#333; 45deg); }
+//再来试试三种颜色。利用此 mixin ，并为其设置第一种颜色、第二种颜色、第二种颜色的色标（例如 25%），还有第三种颜色：
+
+//.example{ #gradient > .vertical-three-colors(#777; #333; 25%; #000); }
+//.example{ #gradient > .horizontal-three-colors(#777; #333; 25%; #000); }
+//当心！ 如果你想删除某个渐变，确保将你所添加的针对 IE 的 filter 一并删除。你可以通过使用 .reset-filter() mixin 和 background-image: none; 达到目的。
+
+
+// ==============================
+// 参考文献
+// ==============================
+//
+

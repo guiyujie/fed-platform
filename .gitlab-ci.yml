@@ -1,0 +1,73 @@
+# 设置`docker`镜像为最新的`nodejs`稳定版（nova项目组维护）
+image: dchub.stnts.com/nova/nodejs:latest
+
+# 执行步骤
+stages:
+  # 依赖安装
+  - install
+  # 自动化测试
+  # - test
+  # 代码构建
+  - build
+  # 项目部署
+  - deploy
+  # 项目提交至管理平台
+  - publish
+
+
+# 缓存node_modules, dist 避免下一个job前被删除
+cache:
+  key: "${CI_COMMIT_REF_NAME}"
+  untracked: true
+  paths:
+    - dist/
+    - node_modules/
+
+# 安装依赖包
+job_install_packages:
+  stage: install
+  script:
+    # 开始安装
+    - echo "begin installing..."
+    # 安装模块依赖：包含deps和devDeps
+    - npm install
+  only:
+    - test
+
+# 自动化测试
+#job_for_unit_test:
+  #stage: test
+  #script:
+    # 开始跑测试（待做）
+    #- echo "todo: testing"
+
+# 构建打包
+job_build_bundles:
+  stage: build
+  script:
+    # 开始构建
+    - echo "begin building..."
+    # 执行代码构建
+    - npm run build
+  only:
+    - test
+
+
+# 测试环境部署（手动）
+job_deploy_to_testing:
+  stage: deploy
+  environment:
+    name: testing
+  script:
+    # 开始部署
+    - echo "deploying..."
+    # 执行部署脚本：传入测试服务器地址、开发端口、部署目录、构建目录
+    # 测试rsync服务
+    - eval $(echo "export RSYNC_PASSWORD=123456 && rsync -avc dist --exclude=.git rsync://nova@10.0.4.166/nova-fed-platform --port 873 --delete")
+
+    #- bash ./deploy.sh "$TESTING_SERVER" "$TESTING_SERVER_PORT" "$TESTING_SERVER_DEPLOY_DIR" "dist"
+  # 需要手动部署
+  when: manual
+  # 仅`test`分支生效
+  only:
+    - test

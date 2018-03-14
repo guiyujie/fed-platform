@@ -1,0 +1,86 @@
+//共用less
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+
+.centerWrap {
+    :global(.ant-form) {
+        text-align: left;
+    }
+}
+
+.tableWrap {
+    margin-top: 30px;
+    padding: 13px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+//name
+.productName {
+    .text-overflow();
+}
+
+//icon
+.iconCardWrap,
+.iconSettingWrap {
+    :global(.ant-alert-info .ant-alert-icon) {
+        color: #79899d;
+        //font-weight: bold;
+    }
+}
+
+//图标设置
+.iconSettingWrap {
+    :global(.anticon-info-circle-o:before) {
+        content: "\E672";
+    }
+}
+
+//图标卡片
+.iconCardWrap {
+    :global(.anticon-info-circle-o:before) {
+        content: "\E635";
+    }
+}
+
+//授权卡列表-标题
+.cardTitleWrap {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #354052;
+}
+
+//授权卡列表
+.cardList {
+    margin-right: -1.3%;
+    :global(.ant-col-6) {
+        width: 23.8%;
+        height:380px;
+        margin-right: 1.2%;
+        margin-bottom: 20px;
+    }
+    :global(.ant-col-6:hover) {
+        position: relative;
+        top: -2px;
+        transition: all 1s;
+
+    }
+    :global(.ant-col-6:hover .ant-card-bordered) {
+        border: 1px solid #10aeff;
+        box-shadow: 0px 15px 6px 0px rgb(166, 184, 198);
+        //transition: all .1s;
+    }
+}
+
+

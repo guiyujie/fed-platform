@@ -1,0 +1,26 @@
+//使用less工具方法
+@import (reference) "~utils/mixin.less";
+
+.wrap {
+    :global(.ant-modal-body) {
+        padding: 0;
+    }
+    :global(.ant-modal-footer){
+        padding-top: 0;
+        padding-bottom: 22px;
+        border-top: none;
+    }
+}
+
+.bg {
+    padding:22px 0 0 0;
+    font-size: 14px;
+    //border:1px solid #ced0da;
+    border-radius: 4px;
+    .vertical(#f2f4f7, #feffff, 0%, 100%);
+    :global(label),
+    :global(.ant-form-item){
+        font-size: 14px;
+        color:#666666;
+    }
+}

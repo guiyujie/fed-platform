@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+</head>
+
+<body>
+    <div id="root" style="height: 100%"></div>
+    <!-- 在页面引入打包好的第三方库 -->
+    <script src="<%= htmlWebpackPlugin.options.dllPath %>"></script>
+
+    <%if(htmlWebpackPlugin.options.env === 'production'){%>
+    <!-- 生产环境输出的内容 -->
+    <%}else{%>
+    <!-- 开发环境输出的内容 -->
+    <script>
+        console.log('当前环境：',`<%= htmlWebpackPlugin.options.env %>`);
+        console.log('webpackConfig：',<%=JSON.stringify(webpackConfig)%>);
+        console.log('htmlWebpackPlugin',<%=JSON.stringify(htmlWebpackPlugin)%>);
+    </script>
+    <%}%>
+    
+</body>
+
+</html>

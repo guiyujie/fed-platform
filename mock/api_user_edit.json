@@ -1,0 +1,9 @@
+{
+	"status": "success",
+	"info": "mock",
+	"data": {
+		"id": "1",
+		"name": "zhangshu",
+		"qq": "309597729"
+	}
+}

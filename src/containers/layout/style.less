@@ -1,0 +1,279 @@
+//使用less工具方法
+@import (reference) "~utils/mixin.less";
+// 滚动条样式
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b2b2b2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9c3;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #b2b2b2;
+}
+
+//silder
+:global(.ant-menu-inline-collapsed>.ant-menu-item .anticon),
+:global(.ant-menu-vertical.ant-menu-inline-collapsed>.ant-menu-item .anticon) {
+    font-size: 20px;
+}
+
+:global(.ant-menu-item>a .anticon) {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+body {
+    color: #666;
+    //slibar
+     :global(.ant-layout-sider-trigger) {}
+    //btn
+     :global(.ant-modal-footer button+button) {
+        margin-left: 20px;
+    }
+    //modal
+     :global(.ant-modal-header) {
+        height: 60px;
+        background-color: #1991eb;
+        .horizontal(#1991eb, #2ea1f8, 0%, 100%);
+    }
+     :global(.ant-modal-body) {
+        padding-top: 16px;
+    }
+     :global(.ant-modal-title) {
+        line-height: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+    }
+     :global(.ant-modal-close) {
+        color: #7cc3f7;
+    }
+     :global(.ant-modal-close:hover) {
+        //color: #fff;
+    }
+     :global(.ant-modal-close-x) {
+        height: 60px;
+        line-height: 60px;
+    }
+     :global(.ant-popover-inner-content) {
+        padding: 22px 16px 8px 16px;
+         :global(button+button) {
+            margin-left: 20px;
+        }
+    }
+    //table
+     :global(.ant-table) {
+        border-radius: 4px;
+        color: #666;
+        font-size: 14px;
+        background-color: #fff;
+    }
+     :global(.ant-table a) {
+        color: #10aeff;
+    }
+     :global(.ant-table-thead>tr>th) {
+        color: #666;
+    }
+     :global(.ant-table-title) {
+        font-size: 24px;
+        font-weight: bold;
+        color: #354052;
+    }
+     :global(.ant-table.ant-table-bordered .ant-table-title) {
+        margin-top: -16px;
+        border: none;
+    }
+     :global(.ant-table-thead>tr>th, .ant-table-tbody>tr>td) {
+        padding: 21px 8px;
+    }
+     :global(.ant-table-thead>tr>th) {
+        background-color: #f2f2f2;
+    }
+     :global(.ant-table-bordered .ant-table-body>table) {
+        border: none;
+        text-align: center;
+    }
+     :global(.ant-table-bordered .ant-table-thead>tr>th),
+     :global(.ant-table-bordered .ant-table-tbody>tr>td) {
+        border-right: none;
+    }
+     :global(.ant-table-bordered .ant-table-thead>tr>th) {
+        font-weight: bold;
+        text-align: center;
+    }
+    //badge
+     :global(.ant-table .ant-badge-status-error) {
+        background-color: transparent;
+        border: 2px solid #f04134;
+    }
+     :global(.ant-table .ant-badge-status-success) {
+        background-color: transparent;
+        border: 2px solid #00a854;
+    }
+     :global(.ant-table .ant-badge-status-default) {
+        background-color: transparent;
+        border: 2px solid #d9d9d9;
+    }
+    //btn
+     :global(.ant-btn) {
+        height: 35px;
+        font-size: 14px;
+    }
+     :global(.ant-btn-primary) {
+        .horizontal(#1991eb, #2ea1f8, 0%, 100%);
+    }
+     :global(.ant-btn-primary:focus),
+     :global(.ant-btn-primary:hover) {
+        .horizontal(#1a98f6, #37a9ff, 0%, 100%);
+    }
+     :global(.ant-btn-primary[disabled]) {
+        color: rgba(0, 0, 0, .25);
+        .horizontal(#f7f7f7, #f7f7f7, 0%, 100%);
+        border-color: #d9d9d9;
+    }
+}
+
+.root {
+    height: 100%;
+    min-width: 1440px;
+}
+
+.layout {
+    height: 100%;
+    background: #273142;
+    //menu
+     :global(.ant-dropdown-link) {
+        color: #108ee9;
+    }
+    //btn
+     :global(.ant-menu-dark),
+     :global(.ant-layout-sider) {
+        background: #273142;
+    }
+     :global(.ant-layout-sider) {
+        float: left\9;
+        border-right: 1px solid #313d4f;
+    }
+     :global(.ant-menu-inline .ant-menu-item, .ant-menu-inline .ant-menu-submenu-title, .ant-menu-vertical .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title) {
+        height: 50px;
+        padding: 0;
+        line-height: 50px;
+        font-size: 14px;
+        border-bottom: 1px solid #313d4f;
+    }
+     :global(.ant-menu-dark .ant-menu-item:hover) {
+        background-color: #10aeff;
+    }
+}
+
+//logo定义
+.logo {
+    height: 69px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 32px;
+    //  text-align: center;
+    float: left;
+    border-bottom: 1px solid #313d4f;
+    span {
+        width: 50px;
+        height: 50px;
+        margin: 9px auto 0;
+        display: inline-block;
+        background: url('../../static/logo.png') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+.nav_bar_center {
+    width: 100%;
+    height: 100%;
+    display: inline;
+}
+
+.nav_bar_menu {
+    width: 615px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+.search_bar{
+    float:right
+}
+
+.collapsed {
+    //anticon类将原样输出
+     :global(.anticon) {
+        font-size: 16px;
+        margin-left: 8px;
+    }
+     :global(.anticon+span),
+     :global(.ant-menu-submenu-vertical>.ant-menu-submenu-title:after) {
+        display: none;
+    }
+     :global(.ant-layout) {
+        background-color: #eff3f6;
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        span {
+            display: inline-block;
+            overflow: hidden;
+        }
+    }
+}
+
+.header {
+    position: relative;
+    height: 69px;
+    padding: 0 20px 0 16px;
+    line-height: 69px;
+    background: #273142;
+    box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.06);
+    h2 {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+.user {
+    float: right;
+    margin-right: 30px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.breadcrumb {
+    margin: 12px 0px;
+}
+
+.container {
+    display: block;
+    padding: 30px 42px 0 42px;
+}
+
+.content {
+    //background: #fff;
+    //padding: 24px;
+    margin: 0;
+    min-height: 880px;
+}
